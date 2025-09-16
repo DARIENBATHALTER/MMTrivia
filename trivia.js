@@ -335,9 +335,6 @@ function selectAnswer(selectedIndex) {
         button.classList.add('disabled');
         if (index === currentQuestion.correct) {
             button.classList.add('correct');
-            if (selectedIndex === currentQuestion.correct) {
-                createConfetti();
-            }
         } else if (index === selectedIndex) {
             button.classList.add('incorrect');
         }
@@ -359,7 +356,6 @@ function showAnswer() {
         button.classList.add('disabled');
         if (index === currentQuestion.correct) {
             button.classList.add('correct');
-            createConfetti();
         } else {
             button.classList.add('incorrect');
         }
@@ -393,40 +389,6 @@ function nextQuestion() {
     }
 
     displayQuestion();
-}
-
-function createConfetti() {
-    const container = document.getElementById('confetti-container');
-    const colors = ['#00c853', '#00e676', '#fdcc26', '#ffffff', '#fdd956', '#69f0ae'];
-
-    // Clear any existing confetti
-    container.innerHTML = '';
-
-    // Create confetti pieces
-    for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + '%';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.animationDelay = Math.random() * 0.5 + 's';
-        confetti.style.animationDuration = (Math.random() * 1 + 2) + 's';
-
-        // Random shape (square or rectangle)
-        if (Math.random() > 0.5) {
-            confetti.style.width = '10px';
-            confetti.style.height = '10px';
-        } else {
-            confetti.style.width = '15px';
-            confetti.style.height = '8px';
-        }
-
-        container.appendChild(confetti);
-    }
-
-    // Clean up after animation
-    setTimeout(() => {
-        container.innerHTML = '';
-    }, 3500);
 }
 
 // Initialize
