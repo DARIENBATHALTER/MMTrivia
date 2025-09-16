@@ -264,7 +264,7 @@ body {
 }
 
 .result-logo {
-    width: 150px;
+    width: 200px;
     height: auto;
     margin-bottom: 30px;
     filter: brightness(0) saturate(100%) invert(100%);
